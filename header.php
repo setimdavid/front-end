@@ -68,7 +68,7 @@
                                 <li><a href="pr-results.php">Previous Results</a></li>
                                 <li><a href="jp-analysis.php">Jackpots Analysis</a></li>
                                 <li><a href="jp-results.php">Jackpots Results</a></li>
-                                <li><a href="contact.php">Contacts</a></li>
+                                <li><a href="contact.php">Contact Us</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>       

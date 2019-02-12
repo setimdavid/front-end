@@ -2,7 +2,7 @@
         <div class="content">
             <div class="container_12">
                 <div class="clear"></div>
-                <div class="grid_12" style="margin-top:20px">
+                <div class="grid_12" style="margin-top:30px">
                     <div class="tabs">
                         <div class="div-nav  ">
                             <ul class="nav">

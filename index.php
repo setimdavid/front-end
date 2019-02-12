@@ -324,8 +324,6 @@
                                             <a href="#">Claritatem insitam; est usus legentis in iis qui facit </a>
                                         </div>
                                     </li>
-
-
                                 </ul>
                             </div>
                         </div>   
