@@ -1,0 +1,17 @@
+.countryJPImage{
+	width: 40px;
+	height: 30px;
+	position: static !important;
+	border: 1px solid;
+}
+
+h4 .payProcess {
+    font-size: 30px !important;
+    line-height: 62px;
+    text-transform: uppercase;
+    position: relative;
+    padding-top: 3px;
+    margin-top: 119px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}

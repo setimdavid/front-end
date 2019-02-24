@@ -1,18 +1,49 @@
+
+<?php
+    session_start();
+    $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+    $title = 'Sure Bets - Home';
+    $classMessgae = '';
+    if (strpos($url,'index.php') !== false) { 
+        $title = 'Home';
+        $classMessgae = 'class="current"';
+    } else if (strpos($url,'free-tips.php') !== false) { 
+        $title = 'Free Tips';
+    }else if (strpos($url,'premium.php') !== false) { 
+        $title = 'Premium Tips';
+    }else if (strpos($url,'pr-results.php') !== false) { 
+        $title = ' Premium Results'; 
+    }else if (strpos($url,'jp-analysis.php') !== false) { 
+        $title = 'JP Analysis'; 
+    }else if (strpos($url,'jp-results.php') !== false) { 
+        $title = 'Jackpots Results'; 
+    }else if (strpos($url,'subscription.php') !== false) { 
+        $title = 'Subscription'; 
+    }else{
+        $classMessgae = 'class="current"';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home</title>
+        <title><?php echo $title; ?></title>
         <meta charset="utf-8">
         <meta name = "format-detection" content = "telephone=no" />
         <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script><link rel="icon" href="images/favicon.ico">
         <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/camera.css">
         <link rel="stylesheet" href="css/touchTouch.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/mystyle.css">
+        <link rel="stylesheet" href="css/form.css">
+
         <script src="js/jquery.js"></script>
         <script src="js/jquery-migrate-1.1.1.js"></script>
-        <script src="js/script.js"></script> 
+        <script src="js/script.js"></script>
+        <script src="js/TMForm.js"></script>
         <script src="js/superfish.js"></script>
         <script src="js/jquery.equalheights.js"></script>
         <script src="js/jquery.mobilemenu.js"></script>
@@ -59,16 +90,23 @@
                 <div class="grid_12">
                     <div class="menu_block ">
                         <div class="autor">
-                            <a href="login.php">Login</a><a href="register.php">Register</a>
+                            <?php if(isset($_SESSION["loggedin"])){
+                                $loggedin = 'YES';
+                                $name = $_SESSION["names"];
+                                echo '<a href="logout.php">Logout(' . $name . ')</a>';
+                            }else{?>
+                                <a href="login.php">Login</a>
+                            <?php } ?>
                         </div>
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="index.php">Home</a></li>
-                                <li><a href="premium.php">Premium Daily Tips</a></li>
-                                <li><a href="pr-results.php">Previous Results</a></li>
-                                <li><a href="jp-analysis.php">Jackpots Analysis</a></li>
-                                <li><a href="jp-results.php">Jackpots Results</a></li>
-                                <li><a href="contact.php">Contact Us</a></li>
+                                <li <?php echo $classMessgae; ?>><a href="index.php">Home</a></li>
+                                <li <?php if (strpos($url,'sub') !== false) { echo 'class="current"'; }?>><a href="subscription.php">Subscription</a></li>
+                                <li <?php if (strpos($url,'free-tips.php') !== false) { echo 'class="current"'; }?>><a href="free-tips.php">Free Tips</a></li>
+                                <li <?php if (strpos($url,'premium.php') !== false) { echo 'class="current"'; }?>><a href="premium.php">Premium Tips</a></li>
+                                <li <?php if (strpos($url,'pr-results.php') !== false) { echo 'class="current"'; }?>><a href="pr-results.php">Results</a></li>
+                                <li <?php if (strpos($url,'jp-analysis.php') !== false) { echo 'class="current"'; }?>><a href="jp-analysis.php">Jackpots Analysis</a></li>
+                                <li <?php if (strpos($url,'jp-results.php') !== false) { echo 'class="current"'; }?>><a href="jp-results.php">Jackpots Results</a></li>
                             </ul>
                         </nav>
                         <div class="clear"></div>       
